@@ -50,7 +50,7 @@ public class Pet {
       return this.age;
    }
    
-   public String sound() {
+   public String speak() {
       if(this.type.equalsIgnoreCase("dog")) {
          return "Woof";
       }
@@ -68,7 +68,7 @@ public class Pet {
       output += "Name: " + this.getName() + "\n";
       output += "Type: " + this.getType() + "\n";
       output += "Age: " + this.getAge() + "\n";
-      output += "Sound: " + this.sound() + "\n";
+      output += "Sound: " + this.speak() + "\n";
       return output;
    }
 }
