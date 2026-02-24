@@ -2,22 +2,48 @@
 import java.util.Scanner;
 
 public class Tests {
- public static void main(String[] args) {
-  Scanner scan = new Scanner(System.in);
-  System.out.println("Please enter 3 test scores.");
+
+   private double ave;
+   private int count;
+   private int score;
+   
+   public Tests() {
+      ave = 0.0;
+      count = 0;
+      score = 0;
+    }
+   
+   public double getAve() {
+      return ave;
+    }
+   
+   public int getScore() {
+      return score;
+    }
+   
+   public void setScore(int newScore) {
+      score = newScore;
+    }
   
-  double score1 = scan.nextDouble();
-  System.out.println("Test score 1: " + score1);
-  
-  double score2 = scan.nextDouble();
-  System.out.println("Test score 2: " + score2);  
-  
-  double score3 = scan.nextDouble();
-  System.out.println("Test score 3: " + score3); 
-  
-  double avgScore;
-  avgScore = (score1 + score2 + score3)/3.0;
-  System.out.printf("The average of 3 test scores is: " + avgScore);
-  
+   public void getAverage() {
+      Scanner scan = new Scanner(System.in);
+      double sum = 0.0;
+     
+      System.out.println("Enter a test score (type '-1' when finished entering scores): ");
+      setScore(scan.nextInt());
+     
+      while (getScore() != -1) {
+         sum += getScore();
+         count++;
+      
+         System.out.println("Enter test scores (type '-1' when finished entering scores): ");
+         setScore(scan.nextInt());
+     } 
+    ave = sum/count;
+   }
+   
+   public String toString(){
+      return "The average of the " + count + " scores entered is " + String.format("%2f", ave) + ".";
+     }
+     
  }
-}
