@@ -7,16 +7,10 @@ public class Runner {
     public static void main(String[] args){
         //instantiate a Calc object
         Calc myCalculator = new Calc();
-        //get user input for two numbers
+   
         Scanner scan = new Scanner(System.in);
-        System.out.println("Please enter the first number: ");
-        double n1 = scan.nextDouble();
-        System.out.println("Please enter the second number: ");
-        double n2 = scan.nextDouble();
-
-        //pass the numbers to the Calc object
-        myCalculator.setNum1(n1);
-        myCalculator.setNum2(n2);
+        myCalculator.newNum1(scan);
+        myCalculator.newNum2(scan);
 
         //output from Calc instance
         System.out.println(myCalculator);

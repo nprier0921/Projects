@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class Calc {
 
    private double num1;
@@ -8,6 +9,15 @@ public class Calc {
       return num1;
    }
    
+   public void newNum1(Scanner scan) {
+   System.out.println("Please enter the first number: ");
+      while (!scan.hasNextDouble()) {
+         System.out.println("Invalid input. Please enter a numeric value: ");
+         scan.next();
+      }
+      num1 = scan.nextDouble();
+   }
+   
    private double num2;
    public void setNum2(double n2) {
       num2 = n2;
@@ -15,6 +25,15 @@ public class Calc {
    public double getNum2() {
       return num2;
    }
+   
+   public void newNum2(Scanner scan) {
+   System.out.println("Please enter the second number: ");
+      while (!scan.hasNextDouble()) {
+         System.out.println("Invalid input. Please enter a numeric value: ");
+         scan.next();
+      }
+      num2 = scan.nextDouble();
+   }   
 
    //add, subtract, multiply, divide methods
    public double add() {
