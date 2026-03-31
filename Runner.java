@@ -1,32 +1,55 @@
-//this class tests all methods in the Calc class
-//the Calc class exposes the following methods:
-//add, subtract, multiply, divide
-//user is prompted for input
-import java.util.Scanner;
 public class Runner {
-    public static void main(String[] args){
-        //instantiate a Calc object
-        Calc myCalculator = new Calc();
-   
-        Scanner scan = new Scanner(System.in);
-        myCalculator.newNum1(scan);
-        myCalculator.newNum2(scan);
+    //exercises the ArrList class
+    public static void main(String[] args) {
+        //instantiate IntArray object
+        IntArray iArr = new IntArray(10);
+        int leng = iArr.size();
 
-        //output from Calc instance
-        System.out.println(myCalculator);
+        //display size of array == number of array elements
+        System.out.println("The number of array elements is: " + leng);
 
-        //examining the instance private data fields by calling get methods
-        System.out.println("Calling num1 get method: " + myCalculator.getNum1());
-        System.out.println("Calling num2 get method: " + myCalculator.getNum2());
+        //this method fills array with random numbers
+        iArr.fillRand();
+        //print out array to prove the fillRand method worked
+        System.out.println("Array with 10 elements filled with random numbers between 1 and 6");
+        System.out.println(iArr);
 
-        //calling Calc methods directly
-        //can use a local variable for sum if you need that value for another calculation
-        double sum = myCalculator.add();
-        System.out.println("The sum is: " + sum);
+        //set a certain array element to a new value
+        iArr.set(5, 6789);
 
-        //or if you don't, then just display the difference, product and quotient
-        System.out.println("The difference is: " + myCalculator.subtract());
-        System.out.println("The product is: " + myCalculator.multiply());
-        System.out.println("The quotient is: " + myCalculator.divide());
+        //display the value of the that new value at position 5 (you can change this index)
+        System.out.println("The value of array element 5 is: " + iArr.get(5));
+
+        //display all array data, watch for the changed element!
+        System.out.println(iArr);
+
+        //clear the array == delete the values and all the elements
+        iArr.clear();
+
+        //check if array is now empty
+        if (iArr.isEmpty()) {
+            System.out.println("iArr is empty\n");
+        }
+
+        //allocate new array elements
+        iArr = new IntArray(100);
+
+        //this method fills array with random numbers
+        iArr.fillRand();
+        //print out array to prove the fillRand method worked
+
+        System.out.println("Array with 100 elements filled with random numbers between 1 and 6");
+        System.out.println(iArr);
+
+        //sort the array
+        if(!iArr.isEmpty()){
+            iArr.sort();
+        }
+        else System.out.println("Array is empty, nothing to sort");
+
+        //print out array to prove the sort method worked
+        System.out.println("Array after sorting\n");
+        System.out.println(iArr);
+
     }
 }
